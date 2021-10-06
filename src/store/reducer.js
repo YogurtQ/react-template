@@ -11,7 +11,7 @@ const initialState = {
   counter: 0,
 };
 
-export const counter = (state = initialState, action = {}) => {
+const counter = (state = initialState, action = {}) => {
   switch (action.type) {
     case 'increment':
       return { counter: state.value + 1 };
@@ -21,3 +21,5 @@ export const counter = (state = initialState, action = {}) => {
       return state;
   }
 };
+
+export default counter;
