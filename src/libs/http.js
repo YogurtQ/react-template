@@ -1,8 +1,8 @@
 /*
- * @Author: QY
+ * @Author: YogurtQ
  * @Date: 2020-12-15 11:44:23
- * @LastEditors: QY
- * @LastEditTime: 2021-07-15 11:53:07
+ * @LastEditors: YogurtQ
+ * @LastEditTime: 2021-10-08 12:14:17
  * @Description: http
  * @FilePath: \react-template\src\libs\http.js
  */
@@ -10,8 +10,8 @@ import axios from 'axios';
 import qs from 'qs';
 import { message } from 'antd';
 
-const TOKEN_TYPE = window.localStorage.getItem('token_type') || 'bearer';
-const AUTH_TOKEN = window.localStorage.getItem('access_token');
+const TOKEN_TYPE = $utils.getItem('token_type') || 'bearer';
+const AUTH_TOKEN = $utils.getItem('access_token');
 
 // axios整体配置
 const instance = axios.create({
@@ -23,22 +23,22 @@ const instance = axios.create({
 
 // 对请求进行拦截
 instance.interceptors.request.use(
-  (config) => config,
-  (error) => Promise.reject(error)
+  config => config,
+  error => Promise.reject(error),
 );
 
 // 对响应进行拦截
 instance.interceptors.response.use(
-  (res) => res.data,
-  (error) => {
+  res => res.data,
+  error => {
     if (error.response) {
       if (error.response.status === 401) {
         message.error('身份状态失效，请重新登录');
-        window.location.href = `${window.location.origin}/login`;
+        window.location.href = `${window.location.origin}/login.html`;
       }
 
       if (error.response.status === 500) {
-        message.error('请求失败，服务器错误');
+        message.error('服务器错误，请稍后重试');
       }
 
       if (error.response.status === 504) {
@@ -47,7 +47,7 @@ instance.interceptors.response.use(
     }
 
     return Promise.reject(error.response);
-  }
+  },
 );
 
 const http = (method, url, params, config) =>
@@ -59,11 +59,12 @@ const http = (method, url, params, config) =>
     responseType: config?.responseType || 'json',
     headers: {
       'Content-Type': config?.contentType || 'application/json; charset=UTF-8',
+      account: config?.account,
     },
     // 若需其他配置，在此处添加。切勿使用 ...config 等不安全的方式
   });
 
-export default {
+const $http = {
   /**
    * get，参数为Object，会自动转化为query形式并添加在地址之后
    * @param {string} url 地址
@@ -101,3 +102,15 @@ export default {
     return http('DELETE', url, params, config);
   },
 };
+
+$http.setAuthorization = auth => {
+  instance.defaults.headers.common['Authorization'] = auth;
+  instance.defaults.headers['Authorization'] = auth;
+};
+
+$http.removeAuthorization = () => {
+  instance.defaults.headers.common['Authorization'] = '';
+  instance.defaults.headers['Authorization'] = '';
+};
+
+export default $http;

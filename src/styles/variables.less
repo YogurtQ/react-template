@@ -1,0 +1,39 @@
+// theme-color 主题色
+@theme-color: #0e78df;
+@theme-color-g: #3469e3;
+@theme-color-dark: darken(@theme-color, 20%);
+@theme-color-light: lighten(@theme-color, 20%);
+@theme-color-hover: saturate(@theme-color, 20%);
+@theme-color-active: saturate(@theme-color, 20%);
+@theme-color-disabled: desaturate(@theme-color, 20%);
+
+// text-color 文字颜色
+@text-color: #fff;
+@text-color-s: #8f9aa5;
+@text-color-h: #1ab2ff;
+
+// background-color 背景色
+@bg-color: #041029;
+@bg-color-aside: #0e2645;
+@bg-color-header: #032045;
+@bg-color-footer: #032045;
+@bg-color-content: #041029;
+
+// border 边框
+@border-width: 1px;
+@border-radius: 0;
+@border-color: #00aaff;
+@border-base: @border-width solid @border-color;
+
+// font-size 字体
+@font-size: 14px;
+@font-size-s: 12px;
+@font-size-l: 18px;
+
+.border( @color: @border-color, @width: @border-width, @type: solid) {
+  border: @width @type @color;
+}
+
+.card-shadow(@color: rgba(@text-color-h, 0.2)) {
+  box-shadow: 0 0 5px 5px @color;
+}

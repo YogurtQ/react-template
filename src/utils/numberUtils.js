@@ -1,8 +1,8 @@
 /*
  * @Author: YogurtQ
  * @Date: 2020-12-03 16:44:42
- * @LastEditors: QY
- * @LastEditTime: 2021-07-15 15:27:47
+ * @LastEditors: YogurtQ
+ * @LastEditTime: 2021-10-08 12:17:19
  * @Description: 数值格式化工具
  * @FilePath: \react-template\src\utils\numberUtils.js
  */
