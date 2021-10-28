@@ -2,7 +2,7 @@
  * @Author: YogurtQ
  * @Date: 2020-12-15 11:44:23
  * @LastEditors: YogurtQ
- * @LastEditTime: 2021-10-08 12:14:17
+ * @LastEditTime: 2021-10-09 18:23:39
  * @Description: http
  * @FilePath: \react-template\src\libs\http.js
  */
@@ -23,14 +23,14 @@ const instance = axios.create({
 
 // 对请求进行拦截
 instance.interceptors.request.use(
-  config => config,
-  error => Promise.reject(error),
+  (config) => config,
+  (error) => Promise.reject(error),
 );
 
 // 对响应进行拦截
 instance.interceptors.response.use(
-  res => res.data,
-  error => {
+  (res) => res.data,
+  (error) => {
     if (error.response) {
       if (error.response.status === 401) {
         message.error('身份状态失效，请重新登录');
@@ -103,7 +103,7 @@ const $http = {
   },
 };
 
-$http.setAuthorization = auth => {
+$http.setAuthorization = (auth) => {
   instance.defaults.headers.common['Authorization'] = auth;
   instance.defaults.headers['Authorization'] = auth;
 };
