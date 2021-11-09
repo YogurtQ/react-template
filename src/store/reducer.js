@@ -1,7 +1,7 @@
 /*
- * @Author: YogurtQ
+ * @Author: YornQiu
  * @Date: 2021-07-15 16:56:09
- * @LastEditors: YogurtQ
+ * @LastEditors: YornQiu
  * @LastEditTime: 2021-10-08 12:16:19
  * @Description: file content
  * @FilePath: \react-template\src\store\reducer.js

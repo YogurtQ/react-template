@@ -1,10 +1,10 @@
 /*
- * @Author: YogurtQ
+ * @Author: YornQiu
  * @Date: 2020-12-03 16:44:42
- * @LastEditors: YogurtQ
- * @LastEditTime: 2021-10-08 12:17:19
+ * @LastEditors: YornQiu
+ * @LastEditTime: 2021-11-09 18:23:18
  * @Description: 数值格式化工具
- * @FilePath: \react-template\src\utils\numberUtils.js
+ * @FilePath: /react-template/src/utils/numberUtils.js
  */
 
 const numberUtils = {

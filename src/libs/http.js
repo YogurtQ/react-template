@@ -1,7 +1,7 @@
 /*
- * @Author: YogurtQ
+ * @Author: YornQiu
  * @Date: 2020-12-15 11:44:23
- * @LastEditors: YogurtQ
+ * @LastEditors: YornQiu
  * @LastEditTime: 2021-10-09 18:23:39
  * @Description: http
  * @FilePath: \react-template\src\libs\http.js
