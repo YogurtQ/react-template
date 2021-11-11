@@ -4,7 +4,8 @@ const CracoLess = require('craco-less')
 
 module.exports = {
   devServer: {
-    port: 8000
+    port: 8000,
+    open: false
   },
   webpack: {
     alias: {

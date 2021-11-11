@@ -24,7 +24,7 @@ const instance = axios.create({
 // 对请求进行拦截
 instance.interceptors.request.use(
   (config) => config,
-  (error) => Promise.reject(error),
+  (error) => Promise.reject(error)
 );
 
 // 对响应进行拦截
@@ -47,7 +47,7 @@ instance.interceptors.response.use(
     }
 
     return Promise.reject(error.response);
-  },
+  }
 );
 
 const http = (method, url, params, config) =>
